@@ -1,0 +1,329 @@
+/* DOCUMENT INFORMATION
+	- Document: Canary Console
+	- Version:  0.1
+	- Author:   James Burgess  
+*/
+
+/* css resetter
+   ============ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* global stylings section
+   ============================= */
+
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+body
+{
+    font-family: 'Titillium Web', arial, sans-serif;
+
+    overflow: hidden;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+/* header stylings section
+   ============================= */
+
+/*header*/
+header
+{
+    z-index: 3;
+
+    height: 100px;
+
+    color: white;
+    border-radius: 0 0 3px 3px;
+    background: #0e3840;
+}
+header img
+{
+    float: right;
+
+    margin-right: 2%;
+    padding-top: 15px;;
+}
+header > h1
+{
+    margin-right: 2%;
+    padding-top: 60px;
+
+    text-align: right;;
+}
+/*threatbanner*/
+.threatbox
+{
+    position: absolute;
+    z-index: -3;
+    top: 50px;
+
+    width: 100vw;
+    height: 40px;
+
+    -webkit-transition-duration: 1s;
+         -o-transition-duration: 1s;
+            transition-duration: 1s;
+    text-align: center;
+
+    color: white;
+    border-radius: 0 0 3px 3px;
+}
+.threatbox.active
+{
+    transform: translate(0,40px);
+}
+.threatbox.alert
+{
+    background: #f85959;
+}
+.threatbox.safe
+{
+    background: #38d47f;
+}
+.threatbox h3
+{
+    padding-top: 15px;
+}
+
+/* main stylings section
+   ============================= */
+
+/*graph container*/
+.graph
+{
+    display: flex;
+    flex-direction: column;
+
+    width: 100vw;
+    height: 100vh;
+    margin-top: -40px;
+    margin-left: 50%;
+
+    transform: translate(-50%);
+
+    justify-content: center;
+    align-items: center;
+}
+/*graph title*/
+.titleBar
+{
+    position: fixed;
+    top: 10vh;
+
+    width: 100vw;
+}
+.title
+{
+    font-size: 2em;
+
+    width: 100vw;
+
+    text-align: center;
+
+    color: #2e2e2e;
+}
+/*d3 graph*/
+svg
+{
+    transform: translateX(-50px);
+}
+/*axeseseesesss*/
+.xaxis
+{
+    font-size: 1em;
+}
+.xAxis .tick line, .xAxis >
+path
+{
+    opacity: 0;
+}
+.yAxis
+{
+    font-size: 1.25em;
+}
+.yAxis path
+{
+    opacity: 0;
+}
+.yAxis .tick line
+{
+    stroke: darkgrey;
+    stroke-dasharray: 10;
+}
+.yAxis .tick:first-child
+{
+    opacity: 0;
+}
+/*tooltip*/
+.tooltip
+{
+    font-size: 1.3em;
+}
+
+/* btn stylings section
+   ============================= */
+
+/*global buttons*/
+button
+{
+    border: none;
+    outline: 0;
+    background: none;
+}
+
+/*week move buttons*/
+#dayUp, #dayDown
+{
+	z-index: 30;
+
+    font-size: 3em;
+
+    position: fixed;
+    top: 8.9vh;
+
+    color: #3e3e3e;
+}
+#dayUp
+{
+    right: 15vw;
+}
+#dayDown
+{
+    left: 15vw;
+
+    transform: rotate(180deg) translate(0px,-5px);
+}
+
+@media screen and (min-width: 1550px)
+{
+    #dayUp
+    {
+        right: 30vw;
+    }
+    #dayDown
+    {
+        left: 30vw;
+    }
+}
+
+/*canary filter buttons*/
+.filters
+{
+    position: fixed;
+    bottom: -100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 80vw;
+    height: 80vh;
+    margin: 10vh 10vw;
+
+    -webkit-transition-duration: 1s;
+         -o-transition-duration: 1s;
+            transition-duration: 1s;
+
+    background: rgba(255,255,255,.8);
+
+    justify-content: center;
+    align-items: center;
+}
+.filters h1
+{
+    font-size: 3em;
+	padding-bottom: 30px;
+    color: #38d47f;
+}
+.filters h2{
+	font-size: 3em;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	transfrom: translate(0,100%);
+}
+.filters h2:hover{
+	cursor: pointer;
+}
+.filters h4
+{
+    font-size: 1.3em;
+    color: #0e3840 ;
+}
+.btn, .threatType
+{
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.filters.active
+{
+    transform: translate(0,-100vh);
+}
+.btn button, .threatType button
+{
+    font-size: 1em;
+
+    height: 40px;
+    margin: 20px;
+    padding: 10px;
+
+    -webkit-transition-duration: 1s;
+         -o-transition-duration: 1s;
+            transition-duration: 1s;
+
+    color: #0e3840;
+    border: 2px solid #0e3840;
+    border-radius: 3px;
+}
+.btn button:active, .btn button:focus, .btn button.active
+{
+    color: white;
+    outline: 0;
+    background: #0e3840;
+}
+.btn button:hover
+{
+    cursor: hand;
+}
+/*filter select button*/
+#canary
+{
+    font-size: 2em;
+
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+}
+
+/* footer style section
+   ============================= */
+
+/*total count*/
+.tcount
+{
+    position: absolute;
+    right: 10px;
+    bottom: 2px;
+
+    color: grey;
+}

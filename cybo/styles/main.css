@@ -1,0 +1,66 @@
+
+
+html,body{
+	margin:0;
+	padding:0;
+	height: 100vh;
+	width: 100vw;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ccb5ff+0,b595ff+47,9a6fff+100 */
+	background: rgb(204,181,255); /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover, rgba(204,181,255,1) 0%, rgba(181,149,255,1) 47%, rgba(154,111,255,1) 100%); /* FF3.6-15 */
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(204,181,255,1) 0%,rgba(181,149,255,1) 47%,rgba(154,111,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: radial-gradient(ellipse at center, rgba(204,181,255,1) 0%,rgba(181,149,255,1) 47%,rgba(154,111,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccb5ff', endColorstr='#9a6fff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+body{
+	height: 100%;
+	align-items: center;
+
+}
+.wrapper{
+	position: absolute;
+	top: 0;
+	display:flex;
+	color: white;
+	width: 100%;
+	align-content:center;
+	justify-content: center;
+	background-color:rgba(102, 0, 255, 0.6);
+	box-shadow: 10px 10px 30px 10px rgba(0,0,0,0.1);
+	height: 100px;
+}
+
+h2{
+	
+}
+
+.jumbotron{ 
+	display: block;
+	margin-top:50px;
+	background:white;
+	box-shadow: 0px 50px 30px -30px rgba(0,0,0,0.3);
+	border-radius:5px;
+}
+
+.table{
+	position:relative;
+	top: 0px;
+	background-color:rgba(102, 0, 255, 0.6);
+}
+
+}
+.table th{
+	text-align: center;
+	border-radius:5px;
+}
+
+#addNumbers{
+	clear:both;
+	margin:0 auto;
+	display: block;
+	border:1px solid;
+
+}
+#addNumbers .addNumbers{
+	align-content: center;
+}
